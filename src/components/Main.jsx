@@ -15,6 +15,12 @@ export default function Main() {
     
     return (
         <main>
+            
+            <section className="welcome-container">
+                <h1 className="welcome-title">Welcome to Recipe Genie!</h1>
+                <p className="welcome-description">This website will take all your available recipes and turn it all into easy to follow recipes!</p>
+            </section>
+            
             <form action={addIngredient} className="add-ingredient-form">
                 <input 
                     type="text"
@@ -24,9 +30,19 @@ export default function Main() {
                 />
                 <button>Add ingredient</button>
             </form>
-            <ul>
-                {ingredientsListItems}
-            </ul>
+            
+            {ingredients.length > 0 && 
+            <section className="ingredients-and-recipes">
+                <h2>Ingredients you have:</h2>
+                <ul className="ingredients-list" aria-live="polite">{ingredientsListItems}</ul>
+                <div className="get-recipe-container">
+                    <div>
+                        <h3>Ready for a recipe?</h3>
+                        <p>Generate a recipe from your list of ingredients.</p>
+                    </div>
+                    <button>Get a recipe</button>
+                </div>
+            </section>}
         </main>
     )
 }
